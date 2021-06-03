@@ -17,11 +17,11 @@ public class LoggingAspect {
 //
 //    }
 
-    @Before("@annotation(com.example.work.loging.Loggable)")//can add pointCut to advice annotations
+    @Before("@annotation(com.example.work.loging.Loggable)")
     public void beforeMethodCall(JoinPoint joinPoint){
         logger.info("Method "+joinPoint.getSignature().getName()+" was called");
     }
-    @AfterReturning(pointcut = "execution(public * com.example.work.controller.ProductController.*(..))", returning = "result")//one more pointCut adding example
+    @AfterReturning(pointcut = "execution(public * com.example.work.controller.ProductController.*(..))", returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
         logger.info( "возвращенное значение: " + result.toString());
     }
