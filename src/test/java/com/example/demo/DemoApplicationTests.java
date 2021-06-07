@@ -67,7 +67,7 @@ class DemoApplicationTests {
         Product product4 = new Product("s10+", "samsung", "england", 500.0);
         List<Product> products = new ArrayList<>(Arrays.asList(product1, product2, product3, product4));
 
-        when(repository.findAllByOrderByIdAsc()).thenReturn(products);
+//        when(repository.findAllByOrderByIdAsc()).thenReturn(products);
         MvcResult mvcResult = mock.perform(MockMvcRequestBuilders.get("/api/products")).
                 andExpect(status().is(200)).
                 andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE)).
