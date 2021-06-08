@@ -22,7 +22,7 @@ public class ProductController {
     private ProductService productService;
 
 
-    //api/products?page=0&sort=price&order=asc
+    //api/products?page=0&sort=price&order=desc
     @Loggable
     @GetMapping("/products")
     public ResponseEntity<Page<Product>> getAll(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "id") String sort, @RequestParam(defaultValue = "asc") String order) {
@@ -36,6 +36,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.getById(id));
     }
 
+    //api/products
     @Loggable
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/products")
@@ -59,6 +60,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.deleteById(id));
     }
 
+    //api/products/find?brand=iPhone&page=0&sort=price&order=desc
     @Loggable
     @GetMapping("/products/find")
     public ResponseEntity<Page<Product>> getByBrand(@RequestParam(value = "brand") String brand,
