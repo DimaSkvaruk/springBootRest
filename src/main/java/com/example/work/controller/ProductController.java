@@ -63,10 +63,12 @@ public class ProductController {
     //api/products/find?brand=iPhone&page=0&sort=price&order=desc
     @Loggable
     @GetMapping("/products/find")
-    public ResponseEntity<Page<Product>> getByBrand(@RequestParam(value = "brand") String brand,
-                                                    @RequestParam(defaultValue = "0") Integer page,
-                                                    @RequestParam(defaultValue = "id") String sort,
-                                                    @RequestParam(defaultValue = "asc") String order) {
+    public ResponseEntity<Page<Product>> getByBrand(
+            @RequestParam(value = "brand", required = false) String brand,
+            @RequestParam(value = "model", required = false) String model,
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "id") String sort,
+            @RequestParam(defaultValue = "asc") String order) {
         return ResponseEntity.ok(productService.findByBrand(brand, page, sort, order));
     }
 
