@@ -1,29 +1,28 @@
 package com.example.work.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String model;
     private String brand;
-    private String from;
+    @Column(name = "made_id")
+    private String madeIn;
     private Double price;
 
     public Product() {
     }
 
-    public Product(String name, String brand, String madeIn, Double price) {
-        this.name = name;
+    public Product(String model, String brand, String madeIn, Double price) {
+        this.model = model;
         this.brand = brand;
-        this.from = madeIn;
+        this.madeIn = madeIn;
         this.price = price;
     }
 
@@ -32,12 +31,12 @@ public class Product {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getModel() {
+        return model;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getBrand() {
@@ -48,12 +47,12 @@ public class Product {
         this.brand = brand;
     }
 
-    public String getFrom() {
-        return from;
+    public String getMadeIn() {
+        return madeIn;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setMadeIn(String madeIn) {
+        this.madeIn = madeIn;
     }
 
     public Double getPrice() {
@@ -70,24 +69,24 @@ public class Product {
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
         return Objects.equals(id, product.id) &&
-                Objects.equals(name, product.name) &&
+                Objects.equals(model, product.model) &&
                 Objects.equals(brand, product.brand) &&
-                Objects.equals(from, product.from) &&
+                Objects.equals(madeIn, product.madeIn) &&
                 Objects.equals(price, product.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, brand, from, price);
+        return Objects.hash(id, model, brand, madeIn, price);
     }
 
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", model='" + model + '\'' +
                 ", brand='" + brand + '\'' +
-                ", from='" + from + '\'' +
+                ", madeIn='" + madeIn + '\'' +
                 ", price=" + price +
                 '}';
     }

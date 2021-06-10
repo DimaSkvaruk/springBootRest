@@ -23,7 +23,7 @@ public class LoggingAspect {
     }
     @AfterReturning(pointcut = "execution(public * com.example.work.controller.ProductController.*(..))", returning = "result")
     public void logAfterReturning(JoinPoint joinPoint, Object result) {
-        logger.info( "возвращенное значение: " + result.toString());
+        logger.info( "Returning value: " + result.toString());
     }
 
 }

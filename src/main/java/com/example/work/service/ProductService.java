@@ -2,6 +2,7 @@ package com.example.work.service;
 
 import com.example.work.model.Product;
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.Optional;
 
@@ -16,5 +17,7 @@ public interface ProductService {
     Page<Product> getAll(int pageNum, String sortBy, String order);
 
     Product update(Long id, Product product);
+
+    Page<Product> find(Specification<Product> specification, Integer page, String sort, String order);
 
 }
