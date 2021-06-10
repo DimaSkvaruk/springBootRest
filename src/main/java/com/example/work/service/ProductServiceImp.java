@@ -23,14 +23,14 @@ public class ProductServiceImp implements ProductService {
 
     @Override
     public Product getById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new NotFoundException("Data not found with id: " + id));
+        return repository.findById(id).orElseThrow(() -> new NotFoundException("Product not found with id: " + id));
     }
 
 
     @Override
     public Optional<Product> deleteById(Long id) {
         Optional<Product> byId = repository.findById(id);
-        byId.orElseThrow(() -> new NotFoundException("Data not found with id: " + id));
+        byId.orElseThrow(() -> new NotFoundException("Product not found with id: " + id));
         byId.ifPresent(product -> repository.delete(product));
         return byId;
     }
