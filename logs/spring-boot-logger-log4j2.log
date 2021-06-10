@@ -1,0 +1,5 @@
+2021-06-10 16:35:21,654 INFO o.a.j.l.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-10 16:35:21,659 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-06-10 16:35:21,661 INFO o.s.w.s.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2021-06-10 16:35:21,695 INFO c.e.w.l.LoggingAspect [http-nio-8080-exec-2] Method getAll was called
+2021-06-10 16:35:21,851 INFO c.e.w.l.LoggingAspect [http-nio-8080-exec-2] Returning value: <200 OK OK,Page 1 of 1 containing com.example.work.model.Product instances,[]>
