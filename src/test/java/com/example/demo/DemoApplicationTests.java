@@ -2,7 +2,7 @@ package com.example.demo;
 
 import com.example.work.controller.ProductController;
 import com.example.work.model.Product;
-import com.example.work.repository.Repository;
+import com.example.work.repository.ProductRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
@@ -46,7 +46,7 @@ class DemoApplicationTests {
     private MockMvc mock;
 
     @MockBean
-    Repository repository;
+    ProductRepository repository;
 
 
     @Test
