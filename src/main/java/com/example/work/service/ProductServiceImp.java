@@ -23,15 +23,15 @@ public class ProductServiceImp implements ProductService {
 
     @Override
     public Product getById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new NotFoundException("Product not found with id: " + id));
+        return repository.findById(id).orElseThrow(() -> new NotFoundException(id));
     }
 
 
     @Override
     public Optional<Product> deleteById(Long id) {
         Optional<Product> byId = repository.findById(id);
-        byId.orElseThrow(() -> new NotFoundException("Product not found with id: " + id));
         byId.ifPresent(product -> repository.delete(product));
+        byId.orElseThrow(() -> new NotFoundException(id));
         return byId;
     }
 
@@ -48,14 +48,18 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public Product update(Long id, Product product) {
-        Product byId = repository.findById(id).get();
-        byId.setBrand(product.getBrand());
-        byId.setMadeIn(product.getMadeIn());
-        byId.setModel(product.getModel());
-        byId.setPrice(product.getPrice());
-        repository.save(byId);
+    public Optional<Product> update(Long id, Product product) {
+        Optional<Product> byId = repository.findById(id);
+        byId.ifPresent((s) -> {
+            s.setModel(product.getModel());
+            s.setBrand(product.getBrand());
+            s.setMadeIn(product.getMadeIn());
+            s.setPrice(product.getPrice());
+            repository.save(s);
+        });
+        byId.orElseThrow(() -> new NotFoundException(id));
         return byId;
+
     }
 
     @Override

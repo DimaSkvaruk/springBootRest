@@ -51,7 +51,7 @@ public class ProductController {
     @Loggable
     @PutMapping("/products/{id}")
     @ResponseBody
-    public ResponseEntity<Product> updateProduct(@PathVariable(name = "id") Long id, @RequestBody Product product) {
+    public ResponseEntity<Optional<Product>> updateProduct(@PathVariable(name = "id") Long id, @RequestBody Product product) {
         return ResponseEntity.ok(productService.update(id, product));
     }
 

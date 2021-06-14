@@ -16,7 +16,7 @@ public interface ProductService {
 
     Page<Product> getAll(int pageNum, String sortBy, String order);
 
-    Product update(Long id, Product product);
+    Optional<Product> update(Long id, Product product);
 
     Page<Product> find(Specification<Product> specification, Integer page, String sort, String order);
 

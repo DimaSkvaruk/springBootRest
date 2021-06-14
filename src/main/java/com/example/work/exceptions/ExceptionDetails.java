@@ -2,7 +2,6 @@ package com.example.work.exceptions;
 
 import org.springframework.http.HttpStatus;
 
-import java.time.ZonedDateTime;
 import java.util.Date;
 
 public class ExceptionDetails {
