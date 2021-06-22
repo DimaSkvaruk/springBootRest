@@ -2,5 +2,7 @@ package com.example.work.model;
 
 public enum Roles {
 
-    ADMIN, USER, MODERATOR
+    ROLE_USER,
+    ROLE_MODERATOR,
+    ROLE_ADMIN
 }

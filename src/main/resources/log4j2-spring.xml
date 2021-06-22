@@ -29,7 +29,7 @@
             <AppenderRef ref="RollingFile" />
         </Root>
 
-        <Logger name="com.example.demo" level="trace"></Logger>
+        <Logger name="com.example.demo" level="trace"/>
     </Loggers>
 
 </Configuration>
